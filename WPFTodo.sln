@@ -9,7 +9,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9A6C8DC2-9
 		docs\Application_Layout.vsdx = docs\Application_Layout.vsdx
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFToDo.Database", "WPFToDo.Database\WPFToDo.Database.csproj", "{56F2A3E0-0989-4754-815A-7DC99E4F25B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFToDo.Database.Test", "WPFToDo.Database.Test\WPFToDo.Database.Test.csproj", "{785C22EF-F480-4157-8790-2778EE56A612}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56F2A3E0-0989-4754-815A-7DC99E4F25B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56F2A3E0-0989-4754-815A-7DC99E4F25B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56F2A3E0-0989-4754-815A-7DC99E4F25B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56F2A3E0-0989-4754-815A-7DC99E4F25B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{785C22EF-F480-4157-8790-2778EE56A612}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{785C22EF-F480-4157-8790-2778EE56A612}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{785C22EF-F480-4157-8790-2778EE56A612}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{785C22EF-F480-4157-8790-2778EE56A612}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
