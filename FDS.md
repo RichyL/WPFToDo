@@ -34,7 +34,7 @@ A task can have the following properties:
 * Id - NUMBER (Mandary) Primary Key.
 * Title - TEXT (Mandatory)
 * Description - TEXT (Optional)
-* DateTime - NUMERIC (Mandatory)
+* DateTime - TEXT (Mandatory)
 * Complete - NUMERIC (Mandatory)
 
 Database to be called TaskDatabase.
