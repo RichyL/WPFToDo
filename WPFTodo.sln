@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9A6C8DC2-9
 	ProjectSection(SolutionItems) = preProject
 		docs\Application_Layout.png = docs\Application_Layout.png
 		docs\Application_Layout.vsdx = docs\Application_Layout.vsdx
+		FDS.md = FDS.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFToDo.Database", "WPFToDo.Database\WPFToDo.Database.csproj", "{56F2A3E0-0989-4754-815A-7DC99E4F25B7}"
