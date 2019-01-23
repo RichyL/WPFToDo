@@ -7,7 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9A6C8DC2-9
 	ProjectSection(SolutionItems) = preProject
 		docs\Application_Layout.png = docs\Application_Layout.png
 		docs\Application_Layout.vsdx = docs\Application_Layout.vsdx
-		FDS.md = FDS.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFToDo.Database", "WPFToDo.Database\WPFToDo.Database.csproj", "{56F2A3E0-0989-4754-815A-7DC99E4F25B7}"
@@ -15,6 +14,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFToDo.Database.Test", "WPFToDo.Database.Test\WPFToDo.Database.Test.csproj", "{785C22EF-F480-4157-8790-2778EE56A612}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTodo.Common", "WPFTodo.Common\WPFTodo.Common.csproj", "{1C2AA1AA-BC26-40A5-BAEE-EAC6461F3AF2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B1B154C8-5EB3-4C31-85AF-98975F80BC54}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
