@@ -20,22 +20,22 @@ namespace WPFToDo.Database
 
         }
 
-        public override int AddTodo(ToDo t)
+        public override ToDo AddToDo(string title, string description)
         {
             throw new NotImplementedException();
         }
 
-        public override bool DeleteTodo(int id)
+        public override bool DeleteToDo(ToDo t)
         {
             throw new NotImplementedException();
         }
 
-        public override List<ToDo> GetAllClosedTodos()
+        public override List<ToDo> GetAllClosedToDos()
         {
             throw new NotImplementedException();
         }
 
-        public override List<ToDo> GetAllOpenTodos()
+        public override List<ToDo> GetAllOpenToDos()
         {
             throw new NotImplementedException();
         }
@@ -50,7 +50,7 @@ namespace WPFToDo.Database
             throw new NotImplementedException();
         }
 
-        public override bool UpdateTodo(ToDo t)
+        public override bool UpdateToDo(ToDo t)
         {
             throw new NotImplementedException();
         }

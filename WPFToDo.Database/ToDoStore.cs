@@ -27,9 +27,9 @@ namespace WPFToDo.Database
         /// <returns></returns>
         public abstract List<ToDo> GetAllToDos();
 
-        public abstract List<ToDo> GetAllOpenTodos();
+        public abstract List<ToDo> GetAllOpenToDos();
 
-        public abstract List<ToDo> GetAllClosedTodos();
+        public abstract List<ToDo> GetAllClosedToDos();
 
         public abstract ToDo GetToDoById(int id);
 
@@ -38,11 +38,11 @@ namespace WPFToDo.Database
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-        public abstract int AddTodo(ToDo t);
+        public abstract ToDo AddToDo(string title, string description);
 
-        public abstract bool UpdateTodo(ToDo t);
+        public abstract bool UpdateToDo(ToDo t);
 
-        public abstract bool DeleteTodo(int id);
+        public abstract bool DeleteToDo(ToDo t);
         
     }
 }
