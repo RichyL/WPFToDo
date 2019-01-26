@@ -17,8 +17,8 @@ The layout of the application is shown in Application_Layout.png
 Screens
 =======
 
-Add/Edit Tasks -  will use AddEditTaskView
-Show existing tasks  - will use ShowAllTasksView
+Add/Edit Todos -  will use AddEditTodoView
+Show existing tasks  - will use ShowAllTodosView
 
 Framework
 =========
@@ -32,7 +32,7 @@ Framework
 Database
 ========
 
-A task can have the following properties:
+A todo can have the following properties:
 
 * Id - NUMBER (Mandary) Primary Key.
 * Title - TEXT (Mandatory)
@@ -40,4 +40,16 @@ A task can have the following properties:
 * DateTime - TEXT (Mandatory)
 * Complete - NUMERIC (Mandatory)
 
-Database to be called TaskDatabase.
+Database to be called TodoDatabase.
+
+Using the repository pattern for the database access.
+
+Interface IToDoDatabase
+
+List<ToDo> GetAllTodos
+ToDo GetTodoById
+List<ToDo> GetAllOpenTodos
+List<ToDo> GetAllClosedTodos
+int AddTodo - adding a todo returns the id of the newly created ToDo
+bool UpdateTodo
+bool DeleteTodo
