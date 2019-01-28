@@ -37,14 +37,12 @@ COMMIT;";
             connection.Close();
         }
 
-        [TestMethod]
         public void Test_Connection_Closed()
         {
             CloseConnection();
             Assert.IsTrue(connection.State == ConnectionState.Closed);
         }
 
-        [TestMethod]
         public void Test_Connection_Opened()
         { 
             Assert.IsTrue(connection.State == ConnectionState.Open);
@@ -99,8 +97,8 @@ COMMIT;";
 
             Assert.AreEqual(1, toDosFromDb.Count);
 
-            Assert.AreSame("Title 2", toDosFromDb[0].Title);
-            Assert.AreSame("Description 2", toDosFromDb[0].Description);
+            Assert.AreEqual("Title 2", toDosFromDb[0].Title);
+            Assert.AreEqual("Description 2", toDosFromDb[0].Description);
         }
 
         [TestMethod]

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WPFToDo.Common;
+using Dapper;
 
 namespace WPFToDo.Database
 {
@@ -22,27 +23,35 @@ namespace WPFToDo.Database
 
         public override ToDo AddToDo(string title, string description)
         {
-            throw new NotImplementedException();
+            ToDo toDo = new ToDo();
+            toDo.Title = title;
+            toDo.Description = description;
+
+            var sql = "INSERT INTO ToDo(Title, Description, DateTime, Complete) VALUES(@Title, @Description, @DateTime, @Complete); " +
+                 "SELECT Id FROM ToDo WHERE Title=@Title AND Description=@Description;";
+            var id = this.connection.Query<int>(sql, toDo).Single();
+            toDo.Id = id;
+            return toDo;
         }
 
         public override bool DeleteToDo(ToDo t)
         {
-            throw new NotImplementedException();
+            return this.connection.Execute("DELETE FROM ToDo WHERE Id = @Id", t)==1;
         }
 
         public override List<ToDo> GetAllClosedToDos()
         {
-            throw new NotImplementedException();
+            return this.connection.Query<ToDo>("SELECT * FROM ToDo WHERE Complete=1").ToList();
         }
 
         public override List<ToDo> GetAllOpenToDos()
         {
-            throw new NotImplementedException();
+            return this.connection.Query<ToDo>("SELECT * FROM ToDo WHERE Complete=0").ToList();
         }
 
         public override List<ToDo> GetAllToDos()
         {
-            throw new NotImplementedException();
+            return this.connection.Query<ToDo>("SELECT * FROM ToDo").ToList();
         }
 
         public override ToDo GetToDoById(int id)
@@ -52,7 +61,8 @@ namespace WPFToDo.Database
 
         public override bool UpdateToDo(ToDo t)
         {
-            throw new NotImplementedException();
+            var sql ="UPDATE ToDo SET Title = @Title, Description = @Description, Complete= @Complete WHERE Id = @Id";
+            return this.connection.Execute(sql, t)==1;
         }
     }
 }
