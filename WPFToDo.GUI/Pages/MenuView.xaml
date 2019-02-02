@@ -5,10 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFToDo.GUI.Pages"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="100">
+             d:DesignHeight="500" d:DesignWidth="100"
+             xmlns:s="https://github.com/canton7/Stylet">
     <DockPanel Background="CornflowerBlue" >
         <TextBlock FontWeight="DemiBold" FontSize="24" Foreground="White" Text="Menu" DockPanel.Dock="Top" HorizontalAlignment="Center" />
         <StackPanel Background="BurlyWood">
+            <ItemsControl ItemsSource="{Binding Pages}" Background="LavenderBlush">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <Button  Content="{Binding Path=Key}" Command="{s:Action SelectActivePage}" CommandParameter="{Binding Path=Key}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
            
         </StackPanel>
     </DockPanel>
