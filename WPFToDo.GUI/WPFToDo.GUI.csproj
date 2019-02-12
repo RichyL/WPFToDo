@@ -134,6 +134,16 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WPFTodo.Common\WPFTodo.Common.csproj">
+      <Project>{1C2AA1AA-BC26-40A5-BAEE-EAC6461F3AF2}</Project>
+      <Name>WPFTodo.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WPFToDo.Database\WPFToDo.Database.csproj">
+      <Project>{56F2A3E0-0989-4754-815A-7DC99E4F25B7}</Project>
+      <Name>WPFToDo.Database</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
