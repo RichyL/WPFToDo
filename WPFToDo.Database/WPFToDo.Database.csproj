@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DapperRespository.cs" />
+    <Compile Include="IToDoStore.cs" />
     <Compile Include="ToDoStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

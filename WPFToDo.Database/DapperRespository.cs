@@ -13,15 +13,17 @@ namespace WPFToDo.Database
     /// A store for ToDos implemented by a SQLite database and
     /// using Dapper as the MicroORM
     /// </summary>
-    public class DapperRespository : ToDoStore
+    public class DapperRespository : IToDoStore
     {
+        protected IDbConnection connection;
+        
 
-        public DapperRespository(IDbConnection con) : base (con)
+        public DapperRespository(IDbConnection con)
         {
-
+            connection = con;
         }
 
-        public override ToDo AddToDo(string title, string description)
+        public  ToDo AddToDo(string title, string description)
         {
             ToDo toDo = new ToDo();
             toDo.Title = title;
@@ -34,32 +36,32 @@ namespace WPFToDo.Database
             return toDo;
         }
 
-        public override bool DeleteToDo(ToDo t)
+        public  bool DeleteToDo(ToDo t)
         {
             return this.connection.Execute("DELETE FROM ToDo WHERE Id = @Id", t)==1;
         }
 
-        public override List<ToDo> GetAllClosedToDos()
+        public  List<ToDo> GetAllClosedToDos()
         {
             return this.connection.Query<ToDo>("SELECT * FROM ToDo WHERE Complete=1").ToList();
         }
 
-        public override List<ToDo> GetAllOpenToDos()
+        public  List<ToDo> GetAllOpenToDos()
         {
             return this.connection.Query<ToDo>("SELECT * FROM ToDo WHERE Complete=0").ToList();
         }
 
-        public override List<ToDo> GetAllToDos()
+        public  List<ToDo> GetAllToDos()
         {
             return this.connection.Query<ToDo>("SELECT * FROM ToDo").ToList();
         }
 
-        public override ToDo GetToDoById(int id)
+        public  ToDo GetToDoById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public override bool UpdateToDo(ToDo t)
+        public  bool UpdateToDo(ToDo t)
         {
             var sql ="UPDATE ToDo SET Title = @Title, Description = @Description, Complete= @Complete WHERE Id = @Id";
             return this.connection.Execute(sql, t)==1;

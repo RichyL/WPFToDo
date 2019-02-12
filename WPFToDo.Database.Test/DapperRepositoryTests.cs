@@ -73,7 +73,7 @@ COMMIT;";
         public void Test_Add_A_ToDo()
         {
             ToDo toDoFromDb= null;
-            ToDoStore toDoStore= new DapperRespository(connection);
+            IToDoStore toDoStore= new DapperRespository(connection);
             toDoFromDb=toDoStore.AddToDo("Title 1","Description 1");
 
             Assert.AreSame("Title 1", toDoFromDb.Title);
@@ -85,7 +85,7 @@ COMMIT;";
         {
             //make a ToDo
             ToDo toDoFromTest = null;
-            ToDoStore toDoStore = new DapperRespository(connection);
+            IToDoStore toDoStore = new DapperRespository(connection);
             toDoFromTest = toDoStore.AddToDo("Title 1", "Description 1");
 
             toDoFromTest.Title = "Title 2";
@@ -106,7 +106,7 @@ COMMIT;";
         {
             //make a ToDo
             ToDo toDoFromTest = null;
-            ToDoStore toDoStore = new DapperRespository(connection);
+            IToDoStore toDoStore = new DapperRespository(connection);
             toDoFromTest = toDoStore.AddToDo("Title 1", "Description 1");
 
             ///delete the todo and save to database
@@ -120,7 +120,7 @@ COMMIT;";
         [TestMethod]
         public void Test_ToDos_Returned()
         {
-            ToDoStore toDoStore = new DapperRespository(connection);
+            IToDoStore toDoStore = new DapperRespository(connection);
             toDoStore.AddToDo("Title 1", "Description 1");
             toDoStore.AddToDo("Title 2", "Description 2");
             toDoStore.AddToDo("Title 3", "Description 3");
@@ -133,7 +133,7 @@ COMMIT;";
         [TestMethod]
         public void Test_Open_ToDos_Returned()
         {
-            ToDoStore toDoStore = new DapperRespository(connection);
+            IToDoStore toDoStore = new DapperRespository(connection);
             List<ToDo> toDos = new List<ToDo>();
 
             toDos.Add(toDoStore.AddToDo("Title 1", "Description 1"));
@@ -154,7 +154,7 @@ COMMIT;";
         [TestMethod]
         public void Test_Closed_ToDos_Returned()
         {
-            ToDoStore toDoStore = new DapperRespository(connection);
+            IToDoStore toDoStore = new DapperRespository(connection);
             List<ToDo> toDos = new List<ToDo>();
 
             toDos.Add(toDoStore.AddToDo("Title 1", "Description 1"));

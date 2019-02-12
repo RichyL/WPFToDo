@@ -12,7 +12,7 @@ namespace WPFToDo.Database
     /// Any store of ToDos must implement this interface. It contains the contract of operations that any ToDo store 
     /// must implement.
     /// </summary>
-    public abstract class ToDoStore
+    public abstract class ToDoStore : IToDoStore
     {
         protected IDbConnection connection;
 
