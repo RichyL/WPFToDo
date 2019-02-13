@@ -26,10 +26,19 @@ namespace WPFToDo.GUI.ViewModels
             set { _toDos = value; }
         }
 
+        public void LoadAllToDos()
+        {
+            _toDos = _toDoStore.GetAllToDos();
+        }
+
+        public void LoadOpenToDos()
+        {
+            _toDos = _toDoStore.GetAllOpenToDos();
+        }
 
         public void Load()
         {
-            _toDos=_toDoStore.GetAllToDos();
+            
         }
     }
 }
