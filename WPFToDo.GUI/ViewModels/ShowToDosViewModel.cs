@@ -40,5 +40,10 @@ namespace WPFToDo.GUI.ViewModels
         {
             
         }
+
+        public void LoadClosedToDos()
+        {
+            _toDos = _toDoStore.GetAllClosedToDos();
+        }
     }
 }

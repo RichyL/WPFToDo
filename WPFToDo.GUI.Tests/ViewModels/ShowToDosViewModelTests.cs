@@ -35,7 +35,13 @@ namespace WPFToDo.GUI.Tests.ViewModels
                     new ToDo { Id = 2, Title = "Title 2", Description = "Description 2", Complete = false }
                 });
 
-            
+            toDoStoreMock.Setup(x => x.GetAllClosedToDos())
+              .Returns(new List<ToDo>
+              {
+                    new ToDo { Id = 3, Title = "Title 3", Description = "Description 3", Complete = true },
+                    new ToDo { Id = 4, Title = "Title 4", Description = "Description 4", Complete = true }
+              });
+
 
             vm = new ShowToDosViewModel(toDoStoreMock.Object);
         }
@@ -55,6 +61,15 @@ namespace WPFToDo.GUI.Tests.ViewModels
         {
 
             vm.LoadOpenToDos();
+
+            Assert.Equal(2, vm.ToDos.Count);
+        }
+
+        [Fact]
+        public void CheckCountOfAllClosedToDosTest()
+        {
+
+            vm.LoadClosedToDos();
 
             Assert.Equal(2, vm.ToDos.Count);
         }
@@ -88,6 +103,18 @@ namespace WPFToDo.GUI.Tests.ViewModels
         public void CheckOpenToDoDetails(int id, string title, string description, bool complete)
         {
             vm.LoadOpenToDos();
+            ToDo toDo = vm.ToDos.SingleOrDefault(t => t.Id == id);
+            Assert.Equal(title, toDo.Title);
+            Assert.Equal(description, toDo.Description);
+            Assert.Equal(complete, toDo.Complete);
+        }
+
+        [Theory]
+        [InlineData(3, "Title 3", "Description 3", true)]
+        [InlineData(4, "Title 4", "Description 4", true)]
+        public void CheckClosedToDoDetails(int id, string title, string description, bool complete)
+        {
+            vm.LoadClosedToDos();
             ToDo toDo = vm.ToDos.SingleOrDefault(t => t.Id == id);
             Assert.Equal(title, toDo.Title);
             Assert.Equal(description, toDo.Description);
