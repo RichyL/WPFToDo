@@ -3,19 +3,19 @@ Functional Design Spec
 
 Plan is to build a base todo list application. It will have	the following functionality:
 
-* [ ] Ability to show a list of tasks from a database
-* [ ] Ability to add a task to a database
-* [ ] Ability to edit an existing tasks and save the changes to the database
-* [ ] Ability to set a task as complete
-* [ ] Ability to show all tasks or to filter on completed or opened
+* [ ] Ability to show a list of ToDos from a database
+* [ ] Ability to add a ToDo to a database
+* [ ] Ability to edit an existing ToDos and save the changes to the database
+* [ ] Ability to set a ToDo as complete
+* [ ] Ability to show all ToDos or to filter on completed or opened
 
 The layout of the application is shown in Application_Layout.png
 
 Screens
 =======
 
-Add/Edit Tasks -  will use AddEditTaskView
-Show existing tasks  - will use ShowAllTasksView
+Add/Edit ToDos -  will use AddEditToDoView
+Show existing ToDos  - will use ShowAllToDosView
 
 Framework
 =========
@@ -29,7 +29,7 @@ Framework
 Database
 ========
 
-A task can have the following properties:
+A ToDo can have the following properties:
 
 * Id - NUMBER (Mandary) Primary Key.
 * Title - TEXT (Mandatory)
@@ -37,4 +37,14 @@ A task can have the following properties:
 * DateTime - TEXT (Mandatory)
 * Complete - NUMERIC (Mandatory)
 
-Database to be called TaskDatabase.
+Database to be called ToDoDatabase.
+
+
+How do Screens Work
+===================
+
+All tasks are shown by default. There are buttons in the menu to show all, opened and closed tasks. 
+
+If a task is double clicked then it can be edited.
+
+Add tasks will add a new task.
