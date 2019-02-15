@@ -67,6 +67,7 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\AddToDoViewModel.cs" />
     <Compile Include="ViewModels\IContentViewModel.cs" />
     <Compile Include="ViewModels\ShowToDosViewModel.cs" />
   </ItemGroup>

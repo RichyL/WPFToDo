@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AddToDoViewModelTests.cs" />
     <Compile Include="ViewModels\ShowToDosViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
