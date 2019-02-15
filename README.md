@@ -54,3 +54,20 @@ ToDo AddToDo(string title, string description)
 bool UpdateToDo
 bool DeleteToDo
 
+
+Description of how the app works
+
+The app starts and it loads currently open ToDos. This list of todos is held in the MainViewModel.
+
+The ShowToDosView will show the current ToDos from this list. If the user double clicks or select an edit button then the screen changes
+to the editview. The details of the ToDo are shown ot the user (editable fields like title and description) and not editable fields like creation date.
+The editview loads as a new page in the content page of the app. When the user clicks save the ShowToDosView is seen and the changes to the ToDo are seen too. 
+Changes are saved to the database at the same time.
+
+If th new ToDo button is pressed then the same view as editToDo is seen. The usre can enter details. Pressing save returns the newly created ToDo which is added to the 
+list of ToDos and shown in ShowToDosView.
+
+Objects are passed to the Dapper Repository and the app is not selecting based on ids.
+
+TODO - need to add a search feature.
+
