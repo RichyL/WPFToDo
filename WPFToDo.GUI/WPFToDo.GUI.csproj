@@ -35,10 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Stylet, Version=1.1.22.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stylet.1.1.22\lib\net45\Stylet.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -136,6 +132,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\StyletSamples\Stylet\Stylet.csproj">
+      <Project>{2435bd00-ac12-48b0-ad36-9bab2fdec3f5}</Project>
+      <Name>Stylet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WPFTodo.Common\WPFTodo.Common.csproj">
       <Project>{1C2AA1AA-BC26-40A5-BAEE-EAC6461F3AF2}</Project>
       <Name>WPFTodo.Common</Name>
