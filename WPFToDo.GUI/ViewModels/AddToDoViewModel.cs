@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Stylet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using WPFToDo.Database;
 
 namespace WPFToDo.GUI.ViewModels
 {
-    public class AddToDoViewModel : BaseViewModel, IContentViewModel
+    public class AddToDoViewModel : Screen
     {
 
         protected IToDoStore _toDoStore;

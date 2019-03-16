@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="WPFToDo.GUI.Views.ShowToDosView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFToDo.GUI.Views"
+             xmlns:vms="clr-namespace:WPFToDo.GUI.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="425"
+             d:DataContext="{d:DesignInstance vms:ShowToDosViewModel, IsDesignTimeCreatable=True}">
+    <StackPanel Orientation="Vertical">
+        <ItemsControl ItemsSource="{Binding ToDos}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Column="0" Grid.Row="0">
+                            <TextBlock FontWeight="DemiBold" FontSize="10" Text="{Binding Path=Title}" />
+                        </Border>
+                        <Border Grid.Column="0" Grid.Row="1">
+                            <TextBlock FontWeight="Regular" FontSize="12" Text="{Binding Path=Description}" />
+                        </Border>
+                        <Border Grid.Column="1" Grid.RowSpan="2">
+                            <CheckBox FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                      IsChecked="{Binding Path=Complete}" >
+                            </CheckBox>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+</UserControl>
