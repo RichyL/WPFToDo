@@ -28,6 +28,7 @@ namespace WPFToDo.GUI.ViewModels
         public ShowToDosViewModel(IToDoStore todoStore)
         {
             _toDoStore = todoStore;
+            LoadAllToDos();
         }
 
         private List<ToDo> _toDos;
@@ -35,27 +36,39 @@ namespace WPFToDo.GUI.ViewModels
         public List<ToDo> ToDos
         {
             get { return _toDos; }
-            set { _toDos = value; }
+            //set { _toDos = value; }
+            set { SetAndNotify(ref this._toDos, value); }
         }
 
         public void LoadAllToDos()
         {
-            _toDos = _toDoStore.GetAllToDos();
+            ToDos = _toDoStore.GetAllToDos();
         }
 
         public void LoadOpenToDos()
         {
-            _toDos = _toDoStore.GetAllOpenToDos();
+            ToDos = _toDoStore.GetAllOpenToDos();
         }
 
         public void Load()
         {
-            
+            LoadAllToDos();
         }
 
         public void LoadClosedToDos()
         {
-            _toDos = _toDoStore.GetAllClosedToDos();
+            ToDos = _toDoStore.GetAllClosedToDos();
+        }
+
+        public void SetToDoAsComplete(ToDo toDo)
+        {
+            return;
+        }
+
+        protected override void OnViewLoaded()
+        {
+            base.OnViewLoaded();
+            LoadAllToDos();
         }
     }
 }

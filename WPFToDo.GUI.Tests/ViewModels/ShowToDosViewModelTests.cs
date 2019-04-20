@@ -120,5 +120,14 @@ namespace WPFToDo.GUI.Tests.ViewModels
             Assert.Equal(description, toDo.Description);
             Assert.Equal(complete, toDo.Complete);
         }
+
+        [Fact]
+        public void SetToDoAsComplete()
+        {
+            vm.LoadOpenToDos();
+            Assert.False(vm.ToDos[0].Complete);
+            vm.SetToDoAsComplete(vm.ToDos[0]);
+            Assert.True(vm.ToDos[0].Complete);
+        }
     }
 }

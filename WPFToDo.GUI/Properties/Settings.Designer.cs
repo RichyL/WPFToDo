@@ -22,14 +22,5 @@ namespace WPFToDo.GUI.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=c:\\Todo.db;Version=3;")]
-        public string SQLiteConnectionString {
-            get {
-                return ((string)(this["SQLiteConnectionString"]));
-            }
-        }
     }
 }

@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using WPFToDo.Common;
 using Dapper;
+using System.Diagnostics;
+using System.IO;
+using System.Data.SQLite;
 
 namespace WPFToDo.Database
 {
@@ -20,7 +23,10 @@ namespace WPFToDo.Database
 
         public DapperRespository(IDbConnection con)
         {
+           
             connection = con;
+
+            //connection = new SQLiteConnection(@"Data Source=C:\Users\Rich Latham\github\WPFToDo\WPFToDo.Database\bin\Debug\DatbaseFile\ToDo.db;Version=3;");
         }
 
         public  ToDo AddToDo(string title, string description)
@@ -28,6 +34,9 @@ namespace WPFToDo.Database
             ToDo toDo = new ToDo();
             toDo.Title = title;
             toDo.Description = description;
+            toDo.Complete = false;
+
+
 
             var sql = "INSERT INTO ToDo(Title, Description, DateTime, Complete) VALUES(@Title, @Description, @DateTime, @Complete); " +
                  "SELECT Id FROM ToDo WHERE Title=@Title AND Description=@Description;";
