@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFToDo.GUI.Pages
+namespace WPFToDo.GUI.Controls
 {
     /// <summary>
-    /// Interaction logic for MenuView.xaml
+    /// Interaction logic for ToDo.xaml
     /// </summary>
-    public partial class MenuView : UserControl
+    public partial class ToDo : UserControl
     {
-        public MenuView()
+        public ToDo()
         {
             InitializeComponent();
         }

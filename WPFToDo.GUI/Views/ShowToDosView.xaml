@@ -5,11 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFToDo.GUI.Views"
              xmlns:vms="clr-namespace:WPFToDo.GUI.ViewModels"
+             xmlns:controls="clr-namespace:WPFToDo.GUI.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="425"
              d:DataContext="{d:DesignInstance vms:ShowToDosViewModel, IsDesignTimeCreatable=True}">
     <StackPanel Orientation="Vertical">
         <ItemsControl ItemsSource="{Binding ToDos}">
+            <!--<controls:ToDo />-->
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,0,0,0">
@@ -35,6 +37,7 @@
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
+            
         </ItemsControl>
     </StackPanel>
 </UserControl>

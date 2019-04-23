@@ -80,6 +80,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controls\ToDo.xaml.cs">
+      <DependentUpon>ToDo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\AddToDoViewModel.cs" />
     <Compile Include="ViewModels\ShowToDosViewModel.cs" />
   </ItemGroup>
@@ -88,10 +91,6 @@
     <Compile Include="Views\AddToDoView.xaml.cs">
       <DependentUpon>AddToDoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MenuView.xaml.cs">
-      <DependentUpon>MenuView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MenuViewModel.cs" />
     <Compile Include="Views\ShellViewModel.cs" />
     <Compile Include="Views\ShowToDosView.xaml.cs">
       <DependentUpon>ShowToDosView.xaml</DependentUpon>
@@ -130,11 +129,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\AddToDoView.xaml">
+    <Page Include="Controls\ToDo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MenuView.xaml">
+    <Page Include="Views\AddToDoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
