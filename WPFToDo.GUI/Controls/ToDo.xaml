@@ -14,13 +14,13 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Border Grid.Column="0" Grid.Row="0">
-            <TextBlock HorizontalAlignment="Left" Margin="40,0,0,0" FontWeight="DemiBold" FontSize="14" Text="{Binding Path=Title,FallbackValue=Title}" />
+            <TextBlock HorizontalAlignment="Left" Margin="40,0,0,0" FontWeight="DemiBold" FontSize="14" Text="{Binding Path=Title,FallbackValue='Your Title Here'}" />
         </Border>
         <Border Grid.Column="0" Grid.Row="1">
-                <TextBlock FontWeight="Regular" FontSize="12" Margin="20,0,0,0" Text="{Binding Path=Description,FallbackValue=Description}" />
+                <TextBlock FontWeight="Regular" VerticalAlignment="Top" TextWrapping="Wrap" FontSize="12" Margin="20,0,0,0" Text="{Binding Path=Description,FallbackValue='Your Description Here'}" />
         </Border>
         <Border Grid.Column="1" Grid.RowSpan="2">
             <CheckBox FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" 

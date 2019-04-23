@@ -19,7 +19,7 @@ namespace WPFToDo.GUI.ViewModels
         /// </summary>
         public ShowToDosViewModel()
         {
-            _toDos = new List<ToDo>();
+            _toDos = new BindableCollection<ToDo>();
             _toDos.Add(new ToDo() { Title = "Todo Title 1", Description = "This is the description for the first todo", Complete = false });
             _toDos.Add(new ToDo() { Title = "Todo Title 2", Description = "This is the description for the second todo", Complete = false });
             _toDos.Add(new ToDo() { Title = "Todo Title 3", Description = "This todo has been completed", Complete = true });
@@ -31,9 +31,9 @@ namespace WPFToDo.GUI.ViewModels
             LoadAllToDos();
         }
 
-        private List<ToDo> _toDos;
+        private BindableCollection<ToDo> _toDos;
 
-        public List<ToDo> ToDos
+        public BindableCollection<ToDo> ToDos
         {
             get { return _toDos; }
             //set { _toDos = value; }
@@ -42,12 +42,12 @@ namespace WPFToDo.GUI.ViewModels
 
         public void LoadAllToDos()
         {
-            ToDos = _toDoStore.GetAllToDos();
+            ToDos = new BindableCollection<ToDo>(_toDoStore.GetAllToDos());
         }
 
         public void LoadOpenToDos()
         {
-            ToDos = _toDoStore.GetAllOpenToDos();
+            ToDos = new BindableCollection<ToDo>(_toDoStore.GetAllOpenToDos());
         }
 
         public void Load()
@@ -57,7 +57,7 @@ namespace WPFToDo.GUI.ViewModels
 
         public void LoadClosedToDos()
         {
-            ToDos = _toDoStore.GetAllClosedToDos();
+            ToDos = new BindableCollection<ToDo>(_toDoStore.GetAllClosedToDos());
         }
 
         public void SetToDoAsComplete(ToDo toDo)

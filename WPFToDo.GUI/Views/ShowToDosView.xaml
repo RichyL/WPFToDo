@@ -10,9 +10,15 @@
              d:DesignHeight="300" d:DesignWidth="425"
              d:DataContext="{d:DesignInstance vms:ShowToDosViewModel, IsDesignTimeCreatable=True}">
     <StackPanel Orientation="Vertical">
+        <!--RICHYL - make a note of this in the future-->
         <ItemsControl ItemsSource="{Binding ToDos}">
-            <!--<controls:ToDo />-->
             <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                <controls:ToDo />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+            <!--<ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,0,0,0">
                         <Grid.ColumnDefinitions>
@@ -36,7 +42,7 @@
                         </Border>
                     </Grid>
                 </DataTemplate>
-            </ItemsControl.ItemTemplate>
+            </ItemsControl.ItemTemplate>-->
             
         </ItemsControl>
     </StackPanel>
