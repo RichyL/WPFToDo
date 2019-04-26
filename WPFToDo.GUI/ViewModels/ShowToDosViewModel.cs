@@ -94,8 +94,8 @@ namespace WPFToDo.GUI.ViewModels
 
         protected override void OnViewLoaded()
         {
-            base.OnViewLoaded();
-            LoadAllToDos();
+            //base.OnViewLoaded();
+            //LoadAllToDos();
         }
     }
 }

@@ -168,6 +168,7 @@ COMMIT;";
 
             List<ToDo> toDosFromDb = toDoStore.GetAllClosedToDos();
             Assert.AreEqual(1, toDosFromDb.Count);
+            Assert.AreEqual("Title 1", toDosFromDb[0].Title);
         }
 
 
