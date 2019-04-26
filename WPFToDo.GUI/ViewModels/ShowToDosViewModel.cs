@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +11,13 @@ using WPFToDo.Database;
 
 namespace WPFToDo.GUI.ViewModels
 {
+    public enum ShowingToDos { All, Open, Closed, No_Selection };
+
     public class ShowToDosViewModel : Screen
     {
         private IToDoStore _toDoStore;
+
+        protected ShowingToDos _viewState = ShowingToDos.Open;
 
         /// <summary>
         /// Parameterless constructor only used for design time data 
@@ -28,7 +33,7 @@ namespace WPFToDo.GUI.ViewModels
         public ShowToDosViewModel(IToDoStore todoStore)
         {
             _toDoStore = todoStore;
-            LoadAllToDos();
+            ShowToDosBasedOnSelection();
         }
 
         private BindableCollection<ToDo> _toDos;
@@ -43,26 +48,48 @@ namespace WPFToDo.GUI.ViewModels
         public void LoadAllToDos()
         {
             ToDos = new BindableCollection<ToDo>(_toDoStore.GetAllToDos());
+            _viewState = ShowingToDos.All;
         }
 
         public void LoadOpenToDos()
         {
             ToDos = new BindableCollection<ToDo>(_toDoStore.GetAllOpenToDos());
-        }
-
-        public void Load()
-        {
-            LoadAllToDos();
+            _viewState = ShowingToDos.Open;
         }
 
         public void LoadClosedToDos()
         {
             ToDos = new BindableCollection<ToDo>(_toDoStore.GetAllClosedToDos());
+            _viewState = ShowingToDos.Closed;
         }
 
         public void SetToDoAsComplete(ToDo toDo)
         {
-            return;
+            Debug.WriteLine("SetToDoAsComplete clicked");
+            toDo.Complete = true;
+            _toDoStore.UpdateToDo(toDo);
+
+            ShowToDosBasedOnSelection();
+        }
+
+        protected void ShowToDosBasedOnSelection()
+        {
+            switch (_viewState)
+            {
+                case ShowingToDos.Open:
+                    LoadOpenToDos();
+                    break;
+                case ShowingToDos.Closed:
+                    LoadClosedToDos();
+                    break;
+                case ShowingToDos.All:
+                    LoadAllToDos();
+                    break;
+                default:
+                    LoadAllToDos();
+                    break;
+
+            }
         }
 
         protected override void OnViewLoaded()

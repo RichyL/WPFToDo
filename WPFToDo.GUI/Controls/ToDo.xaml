@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:s="https://github.com/canton7/Stylet"
              xmlns:local="clr-namespace:WPFToDo.GUI.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="500">
@@ -24,7 +25,7 @@
         </Border>
         <Border Grid.Column="1" Grid.RowSpan="2">
             <CheckBox FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                                      IsChecked="{Binding Path=Complete}" >
+                                      IsChecked="{Binding Path=Complete}" Command="{s:Action SetToDoAsComplete}" CommandParameter="{Binding}" >
             </CheckBox>
         </Border>
     </Grid>

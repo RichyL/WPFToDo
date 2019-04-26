@@ -43,8 +43,25 @@ Database to be called ToDoDatabase.
 How do Screens Work
 ===================
 
-All tasks are shown by default. There are buttons in the menu to show all, opened and closed tasks. 
+The ShowToDo view is shown by default. On this screen the user can:
 
-If a task is double clicked then it can be edited.
+1. search
+2. close a ToDo by clicking on the checkboc
+3. open a ToDo by double clicking away from the checkbox
+4. filter on all todos, closed todos and open todos (default view)
+5. scroll the list of ToDos
+6. sort the todos by date ascending and descending
+7. Add a new todo = opens EditToDo view
 
-Add tasks will add a new task.
+
+If the user opens a todo then the EditToDo view is shown. This is shown in the same windows as the ShowToDoViewModel
+
+This shows the field for the title and description.
+There are save and close buttons.
+
+
+Methdos on ShowToDoViewModel
+
+1. ToDos properties
+2. SetToDoDone(ToDo t)
+3. ShowToDo(ToDo t)
