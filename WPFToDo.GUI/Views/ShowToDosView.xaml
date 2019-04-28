@@ -6,15 +6,24 @@
              xmlns:local="clr-namespace:WPFToDo.GUI.Views"
              xmlns:vms="clr-namespace:WPFToDo.GUI.ViewModels"
              xmlns:controls="clr-namespace:WPFToDo.GUI.Controls"
+             xmlns:s="https://github.com/canton7/Stylet"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="425"
              d:DataContext="{d:DesignInstance vms:ShowToDosViewModel, IsDesignTimeCreatable=True}">
-    <StackPanel Orientation="Vertical">
+    <DockPanel>
+
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+            <Button Content="All ToDos" Command="{s:Action LoadAllToDos}" Margin="10,0,10,0"/>
+            <Button Content="Open ToDos" Command="{s:Action LoadOpenToDos}" Margin="10,0,10,0"/>
+            <Button Content="Closed ToDos" Command="{s:Action LoadClosedToDos}" Margin="10,0,10,0"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical">
         <!--RICHYL - make a note of this in the future-->
         <ItemsControl ItemsSource="{Binding ToDos}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                <controls:ToDo />
+                    <controls:ToDo />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
 
@@ -43,7 +52,12 @@
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>-->
-            
+
         </ItemsControl>
+
+
+       
+
     </StackPanel>
+    </DockPanel>
 </UserControl>
