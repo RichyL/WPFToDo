@@ -53,6 +53,11 @@ namespace WPFToDo.Common
             set { _complete = value; }
         }
 
+        public int CompleteAsNumber
+        {
+            get { return (Complete ? 1 : 0); }
+        }
+
 
         public ToDo()
         {

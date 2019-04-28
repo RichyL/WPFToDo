@@ -101,6 +101,61 @@ COMMIT;";
             Assert.AreEqual("Description 2", toDosFromDb[0].Description);
         }
 
+
+        [TestMethod]
+        public void Test_Set_ToDo_Complete()
+        {
+            //make a ToDo
+            ToDo toDoFromTest = null;
+            IToDoStore toDoStore = new DapperRespository(connection);
+            toDoFromTest = toDoStore.AddToDo("Title 1", "Description 1");
+
+            toDoStore.UpdateToDo(toDoFromTest);
+
+            List<ToDo> toDosFromDb = toDoStore.GetAllToDos();
+
+            //test what was added to the database
+            Assert.AreEqual("Title 1", toDosFromDb[0].Title);
+            Assert.AreEqual("Description 1", toDosFromDb[0].Description);
+            Assert.IsFalse(toDosFromDb[0].Complete);
+
+            //set as complete
+            toDosFromDb[0].Complete = true;
+
+            toDoStore.UpdateToDo(toDosFromDb[0]);
+
+            toDosFromDb = toDoStore.GetAllToDos();
+
+            Assert.IsTrue(toDosFromDb[0].Complete);
+        }
+
+        [TestMethod]
+        public void Test_Set_ToDo_Not_Complete()
+        {
+            //make a ToDo
+            ToDo toDoFromTest = null;
+            IToDoStore toDoStore = new DapperRespository(connection);
+            toDoFromTest = toDoStore.AddToDo("Title 1", "Description 1");
+            toDoFromTest.Complete = true;
+            toDoStore.UpdateToDo(toDoFromTest);
+
+            List<ToDo> toDosFromDb = toDoStore.GetAllToDos();
+
+            //test what was added to the database
+            Assert.AreEqual("Title 1", toDosFromDb[0].Title);
+            Assert.AreEqual("Description 1", toDosFromDb[0].Description);
+            Assert.IsTrue(toDosFromDb[0].Complete);
+
+            //set as complete
+            toDosFromDb[0].Complete = false;
+
+            toDoStore.UpdateToDo(toDosFromDb[0]);
+
+            toDosFromDb = toDoStore.GetAllToDos();
+
+            Assert.IsFalse(toDosFromDb[0].Complete);
+        }
+
         [TestMethod]
         public void Delete_A_ToDo()
         {

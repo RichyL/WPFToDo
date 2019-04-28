@@ -72,7 +72,7 @@ namespace WPFToDo.Database
 
         public  bool UpdateToDo(ToDo t)
         {
-            var sql ="UPDATE ToDo SET Title = @Title, Description = @Description, Complete= @Complete WHERE Id = @Id";
+            var sql ="UPDATE ToDo SET Title = @Title, Description = @Description, Complete= @CompleteAsNumber WHERE Id = @Id";
             return this.connection.Execute(sql, t)==1;
         }
     }

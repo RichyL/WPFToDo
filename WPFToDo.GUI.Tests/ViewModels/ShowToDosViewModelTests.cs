@@ -126,8 +126,17 @@ namespace WPFToDo.GUI.Tests.ViewModels
         {
             vm.LoadOpenToDos();
             Assert.False(vm.ToDos[0].Complete);
-            vm.SetToDoAsComplete(vm.ToDos[0]);
+            vm.SetToDoCompletionState(vm.ToDos[0]);
             Assert.True(vm.ToDos[0].Complete);
+        }
+
+        [Fact]
+        public void SetCompleteToDoAsUncomplete()
+        {
+            vm.LoadClosedToDos();
+            Assert.True(vm.ToDos[0].Complete);
+            vm.SetToDoCompletionState(vm.ToDos[0]);
+            Assert.False(vm.ToDos[0].Complete);
         }
     }
 }

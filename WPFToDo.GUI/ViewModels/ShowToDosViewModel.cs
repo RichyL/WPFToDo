@@ -17,7 +17,7 @@ namespace WPFToDo.GUI.ViewModels
     {
         private IToDoStore _toDoStore;
 
-        protected ShowingToDos _viewState = ShowingToDos.Open;
+        protected ShowingToDos _viewState = ShowingToDos.All;
 
         /// <summary>
         /// Parameterless constructor only used for design time data 
@@ -63,10 +63,10 @@ namespace WPFToDo.GUI.ViewModels
             _viewState = ShowingToDos.Closed;
         }
 
-        public void SetToDoAsComplete(ToDo toDo)
+        public void SetToDoCompletionState(ToDo toDo)
         {
             Debug.WriteLine("SetToDoAsComplete clicked");
-            toDo.Complete = true;
+           
             _toDoStore.UpdateToDo(toDo);
 
             ShowToDosBasedOnSelection();

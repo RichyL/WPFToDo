@@ -25,7 +25,7 @@
         </Border>
         <Border Grid.Column="1" Grid.RowSpan="2">
             <CheckBox FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                                      IsChecked="{Binding Path=Complete}" Command="{s:Action SetToDoAsComplete}" CommandParameter="{Binding}" >
+                                      IsChecked="{Binding Path=Complete}" Command="{s:Action SetToDoCompletionState}" CommandParameter="{Binding}" >
             </CheckBox>
         </Border>
     </Grid>
