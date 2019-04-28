@@ -12,6 +12,17 @@
              d:DataContext="{d:DesignInstance vms:ShowToDosViewModel, IsDesignTimeCreatable=True}">
     <DockPanel>
 
+        <Border DockPanel.Dock="Top" HorizontalAlignment="Right" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Width="200">
+        <StackPanel Orientation="Horizontal">
+                <TextBox Text="{Binding SearchText}" Width="150" Margin="10,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}"  />
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" Command="{s:Action ClearSearch}" >
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE949;"  />
+                </Button>
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" Command="{s:Action Search}" >
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xEA47;"  />
+                </Button>
+            </StackPanel>
+        </Border>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center">
             <Button Content="All ToDos" Command="{s:Action LoadAllToDos}" Margin="10,0,10,0"/>
             <Button Content="Open ToDos" Command="{s:Action LoadOpenToDos}" Margin="10,0,10,0"/>

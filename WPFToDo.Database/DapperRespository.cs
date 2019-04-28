@@ -70,6 +70,12 @@ namespace WPFToDo.Database
             throw new NotImplementedException();
         }
 
+        public List<ToDo> Search(string searchTerm)
+        {
+            searchTerm = string.Concat("%", searchTerm, "%");
+            return this.connection.Query<ToDo>("SELECT * FROM ToDo WHERE Title LIKE @searchParam OR Description LIKE @searchParam", new { @searchParam = searchTerm }).ToList() ;
+        }
+
         public  bool UpdateToDo(ToDo t)
         {
             var sql ="UPDATE ToDo SET Title = @Title, Description = @Description, Complete= @CompleteAsNumber WHERE Id = @Id";

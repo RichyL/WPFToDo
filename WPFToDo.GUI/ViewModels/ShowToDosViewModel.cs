@@ -11,13 +11,21 @@ using WPFToDo.Database;
 
 namespace WPFToDo.GUI.ViewModels
 {
-    public enum ShowingToDos { All, Open, Closed, No_Selection };
+    public enum ShowingToDos { All, Open, Closed, No_Selection, Found };
 
     public class ShowToDosViewModel : Screen
     {
         private IToDoStore _toDoStore;
 
         protected ShowingToDos _viewState = ShowingToDos.All;
+
+        protected string _searchText = string.Empty;
+        /// <summary>
+        /// Current search string text
+        /// </summary>
+        public string SearchText{ get { return _searchText; }
+                                  set { SetAndNotify(ref this._searchText, value); }
+                                    }
 
         /// <summary>
         /// Parameterless constructor only used for design time data 
@@ -66,8 +74,27 @@ namespace WPFToDo.GUI.ViewModels
         public void SetToDoCompletionState(ToDo toDo)
         {
             Debug.WriteLine("SetToDoAsComplete clicked");
-           
+
             _toDoStore.UpdateToDo(toDo);
+
+            //ShowToDosBasedOnSelection();
+        }
+
+        public void Search()
+        {
+            if (SearchText == string.Empty)
+            {
+                LoadAllToDos();
+            }
+            else
+            {
+                ToDos = new BindableCollection<ToDo>(_toDoStore.Search(SearchText));
+            }
+        }
+
+        public void ClearSearch()
+        {
+            SearchText = "";
 
             ShowToDosBasedOnSelection();
         }
@@ -84,6 +111,9 @@ namespace WPFToDo.GUI.ViewModels
                     break;
                 case ShowingToDos.All:
                     LoadAllToDos();
+                    break;
+                case ShowingToDos.Found:
+                    Search();
                     break;
                 default:
                     LoadAllToDos();

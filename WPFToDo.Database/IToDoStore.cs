@@ -10,7 +10,9 @@ namespace WPFToDo.Database
         List<ToDo> GetAllClosedToDos();
         List<ToDo> GetAllOpenToDos();
         List<ToDo> GetAllToDos();
+        List<ToDo> Search(string searchTerm);
         ToDo GetToDoById(int id);
         bool UpdateToDo(ToDo t);
+
     }
 }

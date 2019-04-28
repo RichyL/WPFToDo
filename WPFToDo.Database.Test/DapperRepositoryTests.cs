@@ -226,6 +226,25 @@ COMMIT;";
             Assert.AreEqual("Title 1", toDosFromDb[0].Title);
         }
 
+        [TestMethod]
+        public void Test_Search()
+        {
+            IToDoStore toDoStore = new DapperRespository(connection);
+            List<ToDo> toDos = new List<ToDo>();
+
+            toDos.Add(toDoStore.AddToDo("Title 1", "Description 1"));
+            toDos.Add(toDoStore.AddToDo("Title 2", "Description 2"));
+            toDos.Add(toDoStore.AddToDo("Title 3", "Description 3"));
+            toDos.Add(toDoStore.AddToDo("Title 4", "Description 4"));
+
+            List<ToDo> foundToDos = toDoStore.Search("Description 1");
+            Assert.AreEqual(1, foundToDos.Count);
+
+            foundToDos = toDoStore.Search("Title");
+            Assert.AreEqual(4, foundToDos.Count);
+
+        }
+
 
     }
 }

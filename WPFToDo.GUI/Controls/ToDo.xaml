@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:WPFToDo.GUI.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="500">
-    <Border BorderBrush="Black" BorderThickness="2" CornerRadius="25" >
+    <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" >
     <Grid Margin="0,0,0,0" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*" />
