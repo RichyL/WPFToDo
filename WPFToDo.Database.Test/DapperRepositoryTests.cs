@@ -74,7 +74,7 @@ COMMIT;";
         {
             ToDo toDoFromDb= null;
             IToDoStore toDoStore= new DapperRespository(connection);
-            toDoFromDb=toDoStore.AddToDo("Title 1","Description 1");
+            toDoFromDb=toDoStore.AddToDo(new ToDo { Title = "Title 1", Description = "Description 1" });
 
             Assert.AreSame("Title 1", toDoFromDb.Title);
             Assert.AreSame("Description 1", toDoFromDb.Description);
@@ -86,7 +86,7 @@ COMMIT;";
             //make a ToDo
             ToDo toDoFromTest = null;
             IToDoStore toDoStore = new DapperRespository(connection);
-            toDoFromTest = toDoStore.AddToDo("Title 1", "Description 1");
+            toDoFromTest = toDoStore.AddToDo(new ToDo { Title = "Title 1", Description = "Description 1" });
 
             toDoFromTest.Title = "Title 2";
             toDoFromTest.Description = "Description 2";
@@ -108,7 +108,7 @@ COMMIT;";
             //make a ToDo
             ToDo toDoFromTest = null;
             IToDoStore toDoStore = new DapperRespository(connection);
-            toDoFromTest = toDoStore.AddToDo("Title 1", "Description 1");
+            toDoFromTest = toDoStore.AddToDo(new ToDo { Title = "Title 1", Description = "Description 1" });
 
             toDoStore.UpdateToDo(toDoFromTest);
 
@@ -135,7 +135,7 @@ COMMIT;";
             //make a ToDo
             ToDo toDoFromTest = null;
             IToDoStore toDoStore = new DapperRespository(connection);
-            toDoFromTest = toDoStore.AddToDo("Title 1", "Description 1");
+            toDoFromTest = toDoStore.AddToDo(new ToDo { Title = "Title 1", Description = "Description 1" });
             toDoFromTest.Complete = true;
             toDoStore.UpdateToDo(toDoFromTest);
 
@@ -162,7 +162,7 @@ COMMIT;";
             //make a ToDo
             ToDo toDoFromTest = null;
             IToDoStore toDoStore = new DapperRespository(connection);
-            toDoFromTest = toDoStore.AddToDo("Title 1", "Description 1");
+            toDoFromTest = toDoStore.AddToDo(new ToDo { Title = "Title 1", Description = "Description 1" });
 
             ///delete the todo and save to database
             Assert.IsTrue(toDoStore.DeleteToDo(toDoFromTest));
@@ -176,10 +176,10 @@ COMMIT;";
         public void Test_ToDos_Returned()
         {
             IToDoStore toDoStore = new DapperRespository(connection);
-            toDoStore.AddToDo("Title 1", "Description 1");
-            toDoStore.AddToDo("Title 2", "Description 2");
-            toDoStore.AddToDo("Title 3", "Description 3");
-            toDoStore.AddToDo("Title 4", "Description 4");
+            toDoStore.AddToDo(new ToDo { Title = "Title 1", Description = "Description 1" });
+            toDoStore.AddToDo(new ToDo { Title = "Title 2", Description = "Description 2" });
+            toDoStore.AddToDo(new ToDo { Title = "Title 3", Description = "Description 3" });
+            toDoStore.AddToDo(new ToDo { Title = "Title 4", Description = "Description 4" });
 
             List<ToDo> toDosFromDb = toDoStore.GetAllToDos();
             Assert.AreEqual(4, toDosFromDb.Count);
@@ -191,10 +191,10 @@ COMMIT;";
             IToDoStore toDoStore = new DapperRespository(connection);
             List<ToDo> toDos = new List<ToDo>();
 
-            toDos.Add(toDoStore.AddToDo("Title 1", "Description 1"));
-            toDos.Add(toDoStore.AddToDo("Title 2", "Description 2"));
-            toDos.Add(toDoStore.AddToDo("Title 3", "Description 3"));
-            toDos.Add(toDoStore.AddToDo("Title 4", "Description 4"));
+            toDos.Add(toDoStore.AddToDo(new ToDo { Title = "Title 1", Description = "Description 1" }));
+            toDos.Add(toDoStore.AddToDo(new ToDo { Title = "Title 2", Description = "Description 2" }));
+            toDos.Add(toDoStore.AddToDo(new ToDo { Title = "Title 3", Description = "Description 3" }));
+            toDos.Add(toDoStore.AddToDo(new ToDo { Title = "Title 4", Description = "Description 4" }));
 
             toDos[0].Complete = true;
             toDos[3].Complete = true;
@@ -212,10 +212,10 @@ COMMIT;";
             IToDoStore toDoStore = new DapperRespository(connection);
             List<ToDo> toDos = new List<ToDo>();
 
-            toDos.Add(toDoStore.AddToDo("Title 1", "Description 1"));
-            toDos.Add(toDoStore.AddToDo("Title 2", "Description 2"));
-            toDos.Add(toDoStore.AddToDo("Title 3", "Description 3"));
-            toDos.Add(toDoStore.AddToDo("Title 4", "Description 4"));
+            toDos.Add(toDoStore.AddToDo(new ToDo { Title = "Title 1", Description = "Description 1" }));
+            toDos.Add(toDoStore.AddToDo(new ToDo { Title = "Title 2", Description = "Description 2" }));
+            toDos.Add(toDoStore.AddToDo(new ToDo { Title = "Title 3", Description = "Description 3" }));
+            toDos.Add(toDoStore.AddToDo(new ToDo { Title = "Title 4", Description = "Description 4" }));
 
             toDos[0].Complete = true;
             
@@ -232,10 +232,10 @@ COMMIT;";
             IToDoStore toDoStore = new DapperRespository(connection);
             List<ToDo> toDos = new List<ToDo>();
 
-            toDos.Add(toDoStore.AddToDo("Title 1", "Description 1"));
-            toDos.Add(toDoStore.AddToDo("Title 2", "Description 2"));
-            toDos.Add(toDoStore.AddToDo("Title 3", "Description 3"));
-            toDos.Add(toDoStore.AddToDo("Title 4", "Description 4"));
+            toDos.Add(toDoStore.AddToDo(new ToDo { Title = "Title 1", Description = "Description 1" }));
+            toDos.Add(toDoStore.AddToDo(new ToDo { Title = "Title 2", Description = "Description 2" }));
+            toDos.Add(toDoStore.AddToDo(new ToDo { Title = "Title 3", Description = "Description 3" }));
+            toDos.Add(toDoStore.AddToDo(new ToDo { Title = "Title 4", Description = "Description 4" }));
 
             List<ToDo> foundToDos = toDoStore.Search("Description 1");
             Assert.AreEqual(1, foundToDos.Count);

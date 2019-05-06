@@ -83,11 +83,12 @@
     <Compile Include="Controls\ToDo.xaml.cs">
       <DependentUpon>ToDo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Events\ShowTodosEvent.cs" />
     <Compile Include="ViewModels\AddToDoViewModel.cs" />
     <Compile Include="ViewModels\ShowToDosViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Events\PageChangedEvent.cs" />
+    <Compile Include="Events\EditToDoEvent.cs" />
     <Compile Include="Views\AddToDoView.xaml.cs">
       <DependentUpon>AddToDoView.xaml</DependentUpon>
     </Compile>

@@ -29,11 +29,11 @@ namespace WPFToDo.Database
             //connection = new SQLiteConnection(@"Data Source=C:\Users\Rich Latham\github\WPFToDo\WPFToDo.Database\bin\Debug\DatbaseFile\ToDo.db;Version=3;");
         }
 
-        public  ToDo AddToDo(string title, string description)
+        public  ToDo AddToDo(ToDo t)
         {
             ToDo toDo = new ToDo();
-            toDo.Title = title;
-            toDo.Description = description;
+            toDo.Title = t.Title;
+            toDo.Description = t.Description;
             toDo.Complete = false;
 
 

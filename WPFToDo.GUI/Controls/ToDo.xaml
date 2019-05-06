@@ -6,7 +6,7 @@
              xmlns:s="https://github.com/canton7/Stylet"
              xmlns:local="clr-namespace:WPFToDo.GUI.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="500">
+             d:DesignHeight="100" d:DesignWidth="500" MouseUp="{s:Action EditToDo}" >
     <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" >
     <Grid Margin="0,0,0,0" >
         <Grid.ColumnDefinitions>

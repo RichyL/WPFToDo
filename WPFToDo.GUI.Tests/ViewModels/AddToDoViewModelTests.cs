@@ -20,7 +20,7 @@ namespace WPFToDo.GUI.Tests.ViewModels
         public AddToDoViewModelTests()
         {
             toDoStoreMock = new Mock<IToDoStore>();
-            toDoStoreMock.Setup(x => x.AddToDo(It.IsAny<string>(), It.IsAny<string>())).
+            toDoStoreMock.Setup(x => x.AddToDo(It.IsAny<ToDo>())).
                 Returns(new ToDo { Id = 1, Title = "Title 1", Description = "Description 1" });
 
             vm = new AddToDoViewModel(toDoStoreMock.Object);

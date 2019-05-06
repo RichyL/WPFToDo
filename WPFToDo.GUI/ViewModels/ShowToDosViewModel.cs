@@ -6,8 +6,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using WPFToDo.Common;
 using WPFToDo.Database;
+using WPFToDo.GUI.Events;
 
 namespace WPFToDo.GUI.ViewModels
 {
@@ -16,6 +18,8 @@ namespace WPFToDo.GUI.ViewModels
     public class ShowToDosViewModel : Screen
     {
         private IToDoStore _toDoStore;
+
+        IEventAggregator _eventAggregator = null;
 
         protected ShowingToDos _viewState = ShowingToDos.All;
 
@@ -38,11 +42,14 @@ namespace WPFToDo.GUI.ViewModels
             _toDos.Add(new ToDo() { Title = "Todo Title 3", Description = "This todo has been completed", Complete = true });
         }
 
-        public ShowToDosViewModel(IToDoStore todoStore)
+        public ShowToDosViewModel(IToDoStore todoStore, IEventAggregator eventAggregator)
         {
             _toDoStore = todoStore;
+            _eventAggregator = eventAggregator;
             ShowToDosBasedOnSelection();
         }
+
+        
 
         private BindableCollection<ToDo> _toDos;
 
@@ -126,6 +133,20 @@ namespace WPFToDo.GUI.ViewModels
         {
             //base.OnViewLoaded();
             //LoadAllToDos();
+        }
+
+        //RICHYL - note how the event captured is the windows event - in this case MouseButtonEventArgs
+        //and that to raise my event I need to get the control and DataContext
+        //not a fan of this really as gui code now in vm.
+        public void EditToDo(MouseButtonEventArgs e)
+        {
+            if (e.Source is WPFToDo.GUI.Controls.ToDo)
+            {
+                WPFToDo.GUI.Controls.ToDo clickedToDo = (WPFToDo.GUI.Controls.ToDo)e.Source;
+                EditToDoEvent editEvent = new EditToDoEvent((ToDo)clickedToDo.DataContext);
+                _eventAggregator.Publish(editEvent);
+            }
+            
         }
     }
 }

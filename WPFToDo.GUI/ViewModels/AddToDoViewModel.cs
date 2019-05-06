@@ -21,18 +21,37 @@ namespace WPFToDo.GUI.ViewModels
         { 
             _toDoStore = todoStore;
         }
-        
 
-        public String Title
+        private ToDo _toDo;
+
+        public ToDo ToDo
         {
-            get { return _title; }
-            set { _title = value; }
+            get { return _toDo; }
+            set
+            {
+                if (value == null)
+                {
+                    _toDo = new ToDo();
+                }
+                else
+                {
+                    _toDo = value;
+                }
+            }
         }
+
+        
+        public string Title
+        {
+            get { return _toDo.Title; }
+            set { _toDo.Title = value; }
+        }
+
 
         public String Description
         {
-            get { return _description; }
-            set { _description = value; }
+            get { return _toDo.Description;  }
+            set { _toDo.Description = value; }
         }
 
 
@@ -40,7 +59,7 @@ namespace WPFToDo.GUI.ViewModels
         {
             if (!string.IsNullOrEmpty(_title))
             {
-                return _toDoStore.AddToDo(_title, _description);
+                return _toDoStore.AddToDo(ToDo);
                 
             }
             else

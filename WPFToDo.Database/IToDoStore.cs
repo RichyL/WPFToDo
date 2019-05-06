@@ -5,7 +5,7 @@ namespace WPFToDo.Database
 {
     public interface IToDoStore
     {
-        ToDo AddToDo(string title, string description);
+        ToDo AddToDo(ToDo t);
         bool DeleteToDo(ToDo t);
         List<ToDo> GetAllClosedToDos();
         List<ToDo> GetAllOpenToDos();

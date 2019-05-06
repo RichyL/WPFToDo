@@ -24,5 +24,10 @@ namespace WPFToDo.GUI.Controls
         {
             InitializeComponent();
         }
+
+        private void UserControl_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

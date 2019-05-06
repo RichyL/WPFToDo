@@ -43,7 +43,7 @@ namespace WPFToDo.GUI.Tests.ViewModels
               });
 
 
-            vm = new ShowToDosViewModel(toDoStoreMock.Object);
+            vm = new ShowToDosViewModel(toDoStoreMock.Object,null);
         }
 
         [Fact]
