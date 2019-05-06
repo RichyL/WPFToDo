@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WPFToDo.Common;
 using WPFToDo.Database;
+using WPFToDo.GUI.Events;
 
 namespace WPFToDo.GUI.ViewModels
 {
@@ -17,12 +18,17 @@ namespace WPFToDo.GUI.ViewModels
         private string _title = string.Empty;
         private string _description = string.Empty;
 
-        public AddToDoViewModel(IToDoStore todoStore)
-        { 
+        IEventAggregator _eventAggregator = null;
+
+        public AddToDoViewModel(IToDoStore todoStore,IEventAggregator eventAggregator)
+        {
+            _eventAggregator = eventAggregator;
             _toDoStore = todoStore;
         }
 
         private ToDo _toDo;
+
+        private bool newToDo = false;
 
         public ToDo ToDo
         {
@@ -31,10 +37,12 @@ namespace WPFToDo.GUI.ViewModels
             {
                 if (value == null)
                 {
+                    newToDo = true;
                     _toDo = new ToDo();
                 }
                 else
                 {
+                    newToDo = false;
                     _toDo = value;
                 }
             }
@@ -55,19 +63,37 @@ namespace WPFToDo.GUI.ViewModels
         }
 
 
-        public ToDo SaveToDo()
+        public void SaveToDo()
         {
-            if (!string.IsNullOrEmpty(_title))
+            if (!string.IsNullOrEmpty(Title))
             {
-                return _toDoStore.AddToDo(ToDo);
-                
+                if(newToDo)
+                { 
+                    _toDoStore.AddToDo(ToDo);
+                }
+                else
+                {
+                    _toDoStore.UpdateToDo(ToDo);
+                }
             }
             else
             {
                 throw new ArgumentException("The title cannot be blank");
             }
+
+            _eventAggregator.Publish(new ShowToDosEvent());
             
         }
 
+        public void CancelToDo()
+        {
+            _eventAggregator.Publish(new ShowToDosEvent());
+        }
+
+        protected override void OnActivate()
+        {
+            base.OnActivate();
+        
+        }
     }
 }

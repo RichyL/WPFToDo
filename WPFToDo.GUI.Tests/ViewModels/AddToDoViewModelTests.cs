@@ -23,7 +23,7 @@ namespace WPFToDo.GUI.Tests.ViewModels
             toDoStoreMock.Setup(x => x.AddToDo(It.IsAny<ToDo>())).
                 Returns(new ToDo { Id = 1, Title = "Title 1", Description = "Description 1" });
 
-            vm = new AddToDoViewModel(toDoStoreMock.Object);
+            vm = new AddToDoViewModel(toDoStoreMock.Object,null);
         }
 
         [Fact]
@@ -32,7 +32,8 @@ namespace WPFToDo.GUI.Tests.ViewModels
             
             vm.Title = "Title 1";
             vm.Description = "Description 1";
-            ToDo t = vm.SaveToDo();
+            vm.SaveToDo();
+            ToDo t = vm.ToDo;
             Assert.Equal(1, t.Id);
             Assert.Equal("Title 1", t.Title);
             Assert.Equal("Description 1",t.Description);

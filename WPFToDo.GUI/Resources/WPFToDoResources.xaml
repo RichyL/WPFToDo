@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WPFToDo.GUI.Resources">
+    <Style x:Key="InvisibleButton" TargetType="{x:Type Button}">
+        <Setter Property="Opacity" Value="0%" />
+    </Style>
+</ResourceDictionary>

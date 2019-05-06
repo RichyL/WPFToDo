@@ -6,28 +6,40 @@
              xmlns:s="https://github.com/canton7/Stylet"
              xmlns:local="clr-namespace:WPFToDo.GUI.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="500" MouseUp="{s:Action EditToDo}" >
+             d:DesignHeight="100" d:DesignWidth="500" >
     <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" >
-    <Grid Margin="0,0,0,0" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*" />
-            <ColumnDefinition Width="1*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Border Grid.Column="0" Grid.Row="0">
-            <TextBlock HorizontalAlignment="Left" Margin="40,0,0,0" FontWeight="DemiBold" FontSize="14" Text="{Binding Path=Title,FallbackValue='Your Title Here'}" />
-        </Border>
-        <Border Grid.Column="0" Grid.Row="1">
-                <TextBlock FontWeight="Regular" VerticalAlignment="Top" TextWrapping="Wrap" FontSize="12" Margin="20,0,0,0" Text="{Binding Path=Description,FallbackValue='Your Description Here'}" />
-        </Border>
-        <Border Grid.Column="1" Grid.RowSpan="2">
-            <CheckBox FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" 
+        <Button Command="{s:Action EditToDo}" CommandParameter="{Binding}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <DockPanel>
+                <CheckBox FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                      IsChecked="{Binding Path=Complete}" Command="{s:Action SetToDoCompletionState}" CommandParameter="{Binding}" DockPanel.Dock="Right" />
+                
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" FontWeight="DemiBold" FontSize="14" Text="{Binding Path=Title,FallbackValue='Your Title Here'}" Foreground="Black" DockPanel.Dock="Top"/>
+
+           
+                <TextBlock FontWeight="Regular" VerticalAlignment="Top" TextWrapping="Wrap" FontSize="12" Margin="10,5,0,0" Text="{Binding Path=Description,FallbackValue='Your Description Here'}" Foreground="Black" />
+
+            </DockPanel>
+            <!--<Grid Margin="0,0,0,0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border Grid.Column="0" Grid.Row="0">
+                    <TextBlock HorizontalAlignment="Left" Margin="40,0,0,0" FontWeight="DemiBold" FontSize="14" Text="{Binding Path=Title,FallbackValue='Your Title Here'}" Foreground="Black" />
+                </Border>
+                <Border Grid.Column="0" Grid.Row="1">
+                    <TextBlock FontWeight="Regular" VerticalAlignment="Top" TextWrapping="Wrap" FontSize="12" Margin="20,0,0,0" Text="{Binding Path=Description,FallbackValue='Your Description Here'}" Foreground="Black" />
+                </Border>
+                <Border Grid.Column="1" Grid.RowSpan="2">
+                    <CheckBox FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" 
                                       IsChecked="{Binding Path=Complete}" Command="{s:Action SetToDoCompletionState}" CommandParameter="{Binding}" >
-            </CheckBox>
-        </Border>
-    </Grid>
+                    </CheckBox>
+                </Border>
+            </Grid>-->
+        </Button>
     </Border>
 </UserControl>

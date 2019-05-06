@@ -135,18 +135,10 @@ namespace WPFToDo.GUI.ViewModels
             //LoadAllToDos();
         }
 
-        //RICHYL - note how the event captured is the windows event - in this case MouseButtonEventArgs
-        //and that to raise my event I need to get the control and DataContext
-        //not a fan of this really as gui code now in vm.
-        public void EditToDo(MouseButtonEventArgs e)
+
+        public void EditToDo(ToDo t)
         {
-            if (e.Source is WPFToDo.GUI.Controls.ToDo)
-            {
-                WPFToDo.GUI.Controls.ToDo clickedToDo = (WPFToDo.GUI.Controls.ToDo)e.Source;
-                EditToDoEvent editEvent = new EditToDoEvent((ToDo)clickedToDo.DataContext);
-                _eventAggregator.Publish(editEvent);
-            }
-            
+            _eventAggregator.Publish(new EditToDoEvent(t));   
         }
     }
 }

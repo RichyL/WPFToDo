@@ -27,9 +27,10 @@
             <Button Content="All ToDos" Command="{s:Action LoadAllToDos}" Margin="10,0,10,0"/>
             <Button Content="Open ToDos" Command="{s:Action LoadOpenToDos}" Margin="10,0,10,0"/>
             <Button Content="Closed ToDos" Command="{s:Action LoadClosedToDos}" Margin="10,0,10,0"/>
+            <Button Content="Add New ToDo" Command="{s:Action EditToDo}" CommandParameter="{x:Null}" Margin="40,0,10,0"/>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical">
+        <ScrollViewer >
         <!--RICHYL - make a note of this in the future-->
         <ItemsControl ItemsSource="{Binding ToDos}">
             <ItemsControl.ItemTemplate>
@@ -69,6 +70,6 @@
 
        
 
-    </StackPanel>
+    </ScrollViewer>
     </DockPanel>
 </UserControl>
