@@ -64,8 +64,7 @@ namespace WPFToDo.GUI.ViewModels
             get { return _viewState; }
             set {
                 SetAndNotify(ref this._viewState, value);
-                SetAndNotify(ref this._currentToDoSelection, _viewState.ToString());
-            }
+                }
         }
 
 
@@ -82,18 +81,21 @@ namespace WPFToDo.GUI.ViewModels
         {
             ToDos = new BindableCollection<ToDo>(_toDoStore.GetAllToDos());
             ToDoDisplayState = ShowingToDos.All;
+            CurrentToDoSelection = "All";
         }
 
         public void LoadOpenToDos()
         {
             ToDos = new BindableCollection<ToDo>(_toDoStore.GetAllOpenToDos());
             ToDoDisplayState = ShowingToDos.Open;
+            CurrentToDoSelection = "Open";
         }
 
         public void LoadClosedToDos()
         {
             ToDos = new BindableCollection<ToDo>(_toDoStore.GetAllClosedToDos());
             ToDoDisplayState = ShowingToDos.Closed;
+            CurrentToDoSelection = "Closed";
         }
 
         public void SetToDoCompletionState(ToDo toDo)
