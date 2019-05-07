@@ -21,7 +21,7 @@ namespace WPFToDo.GUI.ViewModels
 
         IEventAggregator _eventAggregator = null;
 
-        protected ShowingToDos _viewState = ShowingToDos.All;
+        
 
         protected string _searchText = string.Empty;
         /// <summary>
@@ -49,7 +49,25 @@ namespace WPFToDo.GUI.ViewModels
             ShowToDosBasedOnSelection();
         }
 
-        
+        protected string _currentToDoSelection;
+        public string CurrentToDoSelection
+        {
+            get { return $"Current selection:{_currentToDoSelection}"; }
+            set { SetAndNotify(ref _currentToDoSelection, value);  }
+           
+        }
+
+        protected ShowingToDos _viewState = ShowingToDos.Open;
+
+        public ShowingToDos ToDoDisplayState
+        {
+            get { return _viewState; }
+            set {
+                SetAndNotify(ref this._viewState, value);
+                SetAndNotify(ref this._currentToDoSelection, _viewState.ToString());
+            }
+        }
+
 
         private BindableCollection<ToDo> _toDos;
 
@@ -63,19 +81,19 @@ namespace WPFToDo.GUI.ViewModels
         public void LoadAllToDos()
         {
             ToDos = new BindableCollection<ToDo>(_toDoStore.GetAllToDos());
-            _viewState = ShowingToDos.All;
+            ToDoDisplayState = ShowingToDos.All;
         }
 
         public void LoadOpenToDos()
         {
             ToDos = new BindableCollection<ToDo>(_toDoStore.GetAllOpenToDos());
-            _viewState = ShowingToDos.Open;
+            ToDoDisplayState = ShowingToDos.Open;
         }
 
         public void LoadClosedToDos()
         {
             ToDos = new BindableCollection<ToDo>(_toDoStore.GetAllClosedToDos());
-            _viewState = ShowingToDos.Closed;
+            ToDoDisplayState = ShowingToDos.Closed;
         }
 
         public void SetToDoCompletionState(ToDo toDo)
@@ -84,7 +102,7 @@ namespace WPFToDo.GUI.ViewModels
 
             _toDoStore.UpdateToDo(toDo);
 
-            //ShowToDosBasedOnSelection();
+            ShowToDosBasedOnSelection();
         }
 
         public void Search()
@@ -108,7 +126,7 @@ namespace WPFToDo.GUI.ViewModels
 
         protected void ShowToDosBasedOnSelection()
         {
-            switch (_viewState)
+            switch (ToDoDisplayState)
             {
                 case ShowingToDos.Open:
                     LoadOpenToDos();

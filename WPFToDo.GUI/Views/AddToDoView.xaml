@@ -26,10 +26,10 @@
         </Border>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-        
-        <Button Content="Save" HorizontalAlignment="Left" Margin="19,0,0,0" VerticalAlignment="Top" Width="101" Command="{s:Action SaveToDo}"  />
 
-            <Button Content="Cancel" HorizontalAlignment="Left" Margin="19,0,0,0" VerticalAlignment="Top" Width="101" Command="{s:Action CancelToDo}" />
+            <Button Content="Save" HorizontalAlignment="Left" Margin="19,0,0,0" VerticalAlignment="Top" Width="101" Command="{s:Action SaveToDo}"  Style="{StaticResource ToDoButtonStyle}"/>
+
+            <Button Content="Cancel" HorizontalAlignment="Left" Margin="19,0,0,0" VerticalAlignment="Top" Width="101" Command="{s:Action CancelToDo}" Style="{StaticResource ToDoButtonStyle}"/>
         </StackPanel>
 
     </StackPanel>
