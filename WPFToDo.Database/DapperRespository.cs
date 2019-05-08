@@ -57,7 +57,7 @@ namespace WPFToDo.Database
 
         public  List<ToDo> GetAllOpenToDos()
         {
-            return this.connection.Query<ToDo>("SELECT * FROM ToDo WHERE Complete=0").ToList();
+                return this.connection.Query<ToDo>("SELECT * FROM ToDo WHERE Complete=0").ToList();
         }
 
         public  List<ToDo> GetAllToDos()

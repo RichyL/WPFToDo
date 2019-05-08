@@ -21,7 +21,7 @@
         <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="0,10">
             <StackPanel Orientation="Vertical">
                 <Label  Content="Description" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontWeight="DemiBold" FontSize="14"/>
-                <TextBox x:Name="descriptionTextBox" HorizontalAlignment="Left" Height="291" Margin="19,0,0,10" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Width="692"/>
+                <TextBox x:Name="descriptionTextBox" HorizontalAlignment="Left" Height="243" Margin="19,0,0,10" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Width="692"/>
             </StackPanel>
         </Border>
 

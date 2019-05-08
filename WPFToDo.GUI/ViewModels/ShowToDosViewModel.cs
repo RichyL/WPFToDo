@@ -153,6 +153,7 @@ namespace WPFToDo.GUI.ViewModels
         {
             //base.OnViewLoaded();
             //LoadAllToDos();
+            ShowToDosBasedOnSelection();
         }
 
 
