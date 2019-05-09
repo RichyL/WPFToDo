@@ -6,6 +6,7 @@
     </Style>
 
     <Style x:Key="ToDoButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -16,4 +17,19 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="ToDoStyle" TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="10" Background="{x:Null}" BorderThickness="2" BorderBrush="Black" Padding="2">
+                        <ContentPresenter  />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
 </ResourceDictionary>

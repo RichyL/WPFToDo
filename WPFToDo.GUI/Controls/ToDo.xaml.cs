@@ -29,5 +29,10 @@ namespace WPFToDo.GUI.Controls
         {
 
         }
+
+        private void DockPanel_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

@@ -9,19 +9,19 @@
               d:DesignHeight="450" d:DesignWidth="725">
     <StackPanel Orientation="Vertical">
 
-        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10">
-        <StackPanel Orientation="Vertical">
-        <Label  Content="Title" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontWeight="DemiBold" FontSize="14"/>
-      
-            
-        <TextBox x:Name="titleTextBox" HorizontalAlignment="Left" Height="23" Margin="19,0,0,10" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" Width="692" />
-        </StackPanel>
+        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="10,0,15,0">
+            <StackPanel Orientation="Vertical" Margin="0,0,8,0">
+                <Label  Content="Title" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontWeight="DemiBold" FontSize="14"/>
+
+
+                <TextBox x:Name="titleTextBox" Height="23" Margin="19,0,10,10" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" />
+            </StackPanel>
         </Border>
 
-        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="0,10">
+        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="10,10,15,10">
             <StackPanel Orientation="Vertical">
                 <Label  Content="Description" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontWeight="DemiBold" FontSize="14"/>
-                <TextBox x:Name="descriptionTextBox" HorizontalAlignment="Left" Height="243" Margin="19,0,0,10" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Width="692"/>
+                <TextBox x:Name="descriptionTextBox" HorizontalAlignment="Left" Height="239" Margin="23,0,0,20" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Width="653"/>
             </StackPanel>
         </Border>
 
