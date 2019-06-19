@@ -45,6 +45,8 @@ namespace WPFToDo.GUI.ViewModels
                     newToDo = false;
                     _toDo = value;
                 }
+                //SetAndNotify(ref this._toDo, _toDo);
+               
             }
         }
 
@@ -52,14 +54,20 @@ namespace WPFToDo.GUI.ViewModels
         public string Title
         {
             get { return _toDo.Title; }
-            set { _toDo.Title = value; }
+            set {
+                _toDo.Title = value;
+                SetAndNotify(ref this._title, _toDo.Title);
+            }
         }
 
 
         public String Description
         {
             get { return _toDo.Description;  }
-            set { _toDo.Description = value; }
+            set {
+                _toDo.Description = value;
+                SetAndNotify(ref this._description, _toDo.Description);
+                }
         }
 
 
@@ -93,6 +101,9 @@ namespace WPFToDo.GUI.ViewModels
         protected override void OnActivate()
         {
             base.OnActivate();
+
+            Title = _toDo.Title;
+            Description = _toDo.Description;
         
         }
     }
