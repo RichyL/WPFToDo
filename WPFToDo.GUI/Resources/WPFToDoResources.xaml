@@ -7,10 +7,11 @@
 
     <Style x:Key="ToDoButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Foreground" Value="Black"></Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="10" Background="{x:Null}" BorderThickness="2" BorderBrush="Black" Padding="2">
+                    <Border CornerRadius="10" Background="{x:Null}"  BorderThickness="2" BorderBrush="Black" Padding="2">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                 </ControlTemplate>

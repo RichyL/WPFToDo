@@ -16,7 +16,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" FontWeight="DemiBold" FontSize="14" Text="{Binding Path=Title,FallbackValue='Your Title Here'}" Foreground="Black" DockPanel.Dock="Top" Width="462"/>
 
            
-                <TextBlock FontWeight="Regular" VerticalAlignment="Top" TextWrapping="Wrap" FontSize="12" Margin="10,5,0,0" Text="{Binding Path=Description,FallbackValue='Your Description Here'}" Foreground="Black" />
+                <TextBox FontWeight="Regular" VerticalAlignment="Top" TextWrapping="Wrap" FontSize="12" Margin="10,5,0,0" Text="{Binding Path=Description,FallbackValue='Your Description Here'}" Foreground="Black" Background="{x:Null}" Height="54" />
 
             </DockPanel>
             <!--<Grid Margin="0,0,0,0" >
