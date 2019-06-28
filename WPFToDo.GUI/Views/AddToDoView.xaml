@@ -7,7 +7,18 @@
              xmlns:s="https://github.com/canton7/Stylet"
              mc:Ignorable="d" 
               d:DesignHeight="450" d:DesignWidth="725">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Resources\WPFToDoResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
     <StackPanel Orientation="Vertical">
+
+        
 
         <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="10,0,15,0">
             <StackPanel Orientation="Vertical" Margin="0,0,8,0">
@@ -21,15 +32,25 @@
         <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="10,10,15,10">
             <StackPanel Orientation="Vertical">
                 <Label  Content="Description" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontWeight="DemiBold" FontSize="14"/>
-                <TextBox x:Name="descriptionTextBox" HorizontalAlignment="Left" Height="239" Margin="23,0,0,20" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Width="653"/>
+                <TextBox x:Name="descriptionTextBox" HorizontalAlignment="Left" Height="239" Margin="23,0,0,20" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding Description}" VerticalAlignment="Top" Width="653"/>
             </StackPanel>
         </Border>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Orientation="Vertical">
 
-            <Button Content="Save" HorizontalAlignment="Left" Margin="19,0,0,0" VerticalAlignment="Top" Width="101" Command="{s:Action SaveToDo}"  Style="{StaticResource ToDoButtonStyle}"/>
+      
 
-            <Button Content="Cancel" HorizontalAlignment="Left" Margin="19,0,0,0" VerticalAlignment="Top" Width="101" Command="{s:Action CancelToDo}" Style="{StaticResource ToDoButtonStyle}"/>
+            <DockPanel  HorizontalAlignment="Stretch" Margin="10,0">
+
+                <CheckBox FontSize="20"  VerticalAlignment="Center" 
+                                      IsChecked="{Binding Path=ToDoComplete}" Command="{s:Action SetToDoComplete}" Background="{x:Null}"  DockPanel.Dock="Left">Mark complete</CheckBox>
+                <Separator Width="100" Visibility="Hidden" Foreground="Black"/>
+                <StackPanel Orientation="Horizontal">
+                <Button Content="Save" HorizontalAlignment="Left" Margin="19,0,0,0" VerticalAlignment="Top" Width="101" Command="{s:Action SaveToDo}"  Style="{StaticResource ToDoButtonStyle}"/>
+
+                <Button Content="Cancel" HorizontalAlignment="Left" Margin="19,0,0,0" VerticalAlignment="Top" Width="101" Command="{s:Action CancelToDo}" Style="{StaticResource ToDoButtonStyle}"/>
+                </StackPanel>
+                </DockPanel>
         </StackPanel>
 
     </StackPanel>

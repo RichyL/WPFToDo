@@ -7,6 +7,13 @@
              xmlns:local="clr-namespace:WPFToDo.GUI.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="500" >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Resources\WPFToDoResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" >
         <Button Command="{s:Action EditToDo}" CommandParameter="{Binding}" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Style="{StaticResource ToDoStyle}">
             <DockPanel>
@@ -16,7 +23,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" FontWeight="DemiBold" FontSize="14" Text="{Binding Path=Title,FallbackValue='Your Title Here'}" Foreground="Black" DockPanel.Dock="Top" Width="462"/>
 
            
-                <TextBox FontWeight="Regular" VerticalAlignment="Top" TextWrapping="Wrap" FontSize="12" Margin="10,5,0,0" Text="{Binding Path=Description,FallbackValue='Your Description Here'}" Foreground="Black" Background="{x:Null}" Height="54" />
+                <TextBox FontWeight="Regular" VerticalAlignment="Top" TextWrapping="Wrap" FontSize="12" Margin="10,5,0,0" Text="{Binding Path=Description,FallbackValue='Your Description Here'}" Foreground="Black" Background="{x:Null}" Height="54"  AcceptsReturn="True" Width="434" />
 
             </DockPanel>
             <!--<Grid Margin="0,0,0,0" >

@@ -26,6 +26,22 @@ namespace WPFToDo.GUI.ViewModels
             _toDoStore = todoStore;
         }
 
+        public void SetToDoComplete()
+        {
+            _toDo.Complete = !_toDo.Complete;
+        }
+
+        //public bool ToDoComplete
+        //{
+        //    get { return _toDo.Complete; }
+        //    set {
+        //        _toDo.Complete = value;
+
+        //        SetAndNotify(ref ToDoComplete, _toDo.Complete);
+        //    }
+        //}
+
+
         private ToDo _toDo;
 
         private bool newToDo = false;
